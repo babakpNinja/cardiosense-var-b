@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Designing Trust: How Regulatory Science Brought the First Noninvasive AI Heart-Pressure Reading to Patients — Cardiosense</title>
+<meta name="description" content="The regulatory and clinical story behind Cardiosense's FDA De Novo–authorized PCWP Analysis Software: how a first-in-class, AI-powered, noninvasive heart-pressure technology was designed, validated, and brought to U.S. patients — and why the Predetermined Change Control Plan (PCCP) is the future of safe, ever-improving medical AI.">
+<meta property="og:title" content="Designing Trust: Regulatory Science, the FDA, and the First Noninvasive AI Heart-Pressure Reading">
+<meta property="og:description" content="How disciplined regulatory science and a true FDA/CDRH partnership brought a first-in-class De Novo device to 6 million U.S. heart-failure patients.">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --ink:#10243e;
+    --ink-soft:#33506f;
+    --accent:#c8102e;       /* cardiac red */
+    --accent-2:#0a6cff;     /* clinical blue */
+    --teal:#0e8c8b;
+    --paper:#fbfcfe;
+    --paper-2:#f1f5fb;
+    --line:#dfe7f1;
+    --gold:#b8862b;
+    --shadow:0 18px 50px rgba(16,36,62,.10);
+    --maxw:780px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;color:var(--ink);background:var(--paper);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    font-size:19px;line-height:1.72;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  header.hero{
+    background:
+      radial-gradient(1200px 460px at 78% -8%, rgba(10,108,255,.20), transparent 60%),
+      radial-gradient(900px 420px at 6% 8%, rgba(200,16,46,.16), transparent 60%),
+      linear-gradient(160deg,#0b1c33 0%, #10243e 48%, #14304f 100%);
+    color:#eaf1fb;padding:72px 0 60px;position:relative;overflow:hidden;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .hero .kicker{
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    letter-spacing:.18em;text-transform:uppercase;font-size:12.5px;font-weight:700;
+    color:#9fc2ff;margin:0 0 18px
+  }
+  .hero h1{
+    font-size:clamp(31px,5.4vw,52px);line-height:1.07;margin:0 0 20px;font-weight:700;
+    letter-spacing:-.01em;
+  }
+  .hero .dek{
+    font-size:clamp(18px,2.6vw,22px);color:#cfe0f6;max-width:680px;margin:0 0 26px;line-height:1.5
+  }
+  .byline{
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:14.5px;color:#bcd0ec;display:flex;gap:10px;flex-wrap:wrap;align-items:center
+  }
+  .byline strong{color:#fff}
+  .byline .sep{opacity:.45}
+  .pill{
+    display:inline-block;font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);
+    color:#eaf1fb;background:rgba(255,255,255,.06);margin:22px 8px 0 0
+  }
+
+  .stats{background:var(--paper-2);border-bottom:1px solid var(--line)}
+  .stats .grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center;
+    max-width:980px;margin:0 auto
+  }
+  .stat{padding:26px 14px;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+  .stat .num{
+    font-size:clamp(26px,4vw,40px);font-weight:700;color:var(--accent);line-height:1;letter-spacing:-.02em
+  }
+  .stat .lab{
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    font-size:12.5px;color:var(--ink-soft);margin-top:9px;line-height:1.35
+  }
+  @media(max-width:680px){
+    .stats .grid{grid-template-columns:repeat(2,1fr)}
+    .stat:nth-child(2){border-right:none}
+    .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
+  }
+
+  article{padding:54px 0 20px}
+  article h2{
+    font-size:clamp(24px,3.4vw,32px);line-height:1.18;margin:52px 0 6px;letter-spacing:-.01em
+  }
+  article h2 .eyebrow{
+    display:block;font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2);
+    margin-bottom:8px
+  }
+  article h3{font-size:21px;margin:34px 0 4px}
+  article p{margin:18px 0}
+  .lead{font-size:22px;line-height:1.6;color:var(--ink)}
+  .drop:first-letter{
+    float:left;font-size:64px;line-height:.82;padding:6px 12px 0 0;color:var(--accent);font-weight:700
+  }
+  em.term{font-style:italic;color:var(--ink)}
+  strong{color:var(--ink)}
+
+  blockquote.pull{
+    margin:38px 0;padding:6px 0 6px 26px;border-left:4px solid var(--accent);
+    font-size:24px;line-height:1.4;color:var(--ink);font-style:italic
+  }
+  blockquote.pull cite{
+    display:block;margin-top:14px;font-size:15px;font-style:normal;color:var(--ink-soft);
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+  }
+
+  .callout{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin:34px 0;
+    box-shadow:var(--shadow)
+  }
+  .callout.accent{border-top:4px solid var(--accent)}
+  .callout.blue{border-top:4px solid var(--accent-2)}
+  .callout.teal{border-top:4px solid var(--teal)}
+  .callout h4{
+    margin:0 0 6px;font-size:18px;
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.01em
+  }
+  .callout .tag{
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:11.5px;
+    font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2)
+  }
+  .callout p{margin:12px 0 0;font-size:17.5px}
+  .callout ul{margin:12px 0 0;padding-left:20px;font-size:17px}
+  .callout li{margin:7px 0}
+
+  .timeline{list-style:none;margin:30px 0;padding:0;position:relative}
+  .timeline:before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .timeline li{position:relative;padding:0 0 22px 38px}
+  .timeline li:before{
+    content:"";position:absolute;left:2px;top:6px;width:16px;height:16px;border-radius:50%;
+    background:var(--accent);border:3px solid #fff;box-shadow:0 0 0 2px var(--line)
+  }
+  .timeline .when{
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-2)
+  }
+  .timeline .what{display:block;margin-top:3px;font-size:18px}
+  .timeline .what small{display:block;color:var(--ink-soft);font-size:15px;font-style:italic}
+
+  hr.sec{border:none;border-top:1px solid var(--line);margin:40px 0}
+
+  footer{
+    background:#0b1c33;color:#bcd0ec;padding:40px 0 56px;margin-top:46px;
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:14px;line-height:1.6
+  }
+  footer h5{color:#fff;margin:0 0 8px;font-size:15px;letter-spacing:.04em}
+  footer a{color:#9fc2ff}
+  .note{
+    background:#fff7e8;border:1px solid #f0dcae;border-radius:12px;padding:16px 18px;margin:26px 0;
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:14.5px;color:#6b531f
+  }
+  .reflist{font-size:14px;color:var(--ink-soft);line-height:1.55}
+  .reflist li{margin:6px 0}
+
+
+/* ===== Variation B — Clinical Journal ===== */
+body.theme-b{background:#ffffff;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#16222e;font-size:18px;line-height:1.7}
+body.theme-b{--accent:#0e7c86;--accent-2:#1257a6}
+.theme-b .wrap{max-width:820px}
+.theme-b header.hero{background:#ffffff;color:#13202c;border-bottom:3px solid #0e7c86;padding:48px 0 30px}
+.theme-b .hero:before{content:"";position:absolute;inset:0;background:none}
+.theme-b .hero .kicker{color:#0e7c86}
+.theme-b .hero h1{font-family:Georgia,"Times New Roman",serif;color:#0b1620;font-weight:700}
+.theme-b .hero .dek{color:#3a4b5a}
+.theme-b .byline{color:#5a6b78}
+.theme-b .byline strong{color:#13202c}
+.theme-b .pill{color:#0e7c86;background:#e9f6f6;border:1px solid #bfe3e3}
+.theme-b .stats{background:#f4f8fb;border-top:1px solid #e2eaf0;border-bottom:1px solid #e2eaf0}
+.theme-b .stat{border-right:1px solid #e2eaf0}
+.theme-b .stat .num{color:#0e7c86}
+.theme-b .stat .lab{color:#5a6b78}
+.theme-b article h2{font-family:Georgia,serif;color:#0b1620}
+.theme-b article h2 .eyebrow{color:#0e7c86}
+.theme-b article h3{font-family:Georgia,serif}
+.theme-b .lead{font-family:Georgia,serif;background:#f4f8fb;border-left:4px solid #0e7c86;padding:18px 22px;border-radius:0 8px 8px 0;font-size:20px}
+.theme-b .lead:first-letter{float:none;font-size:inherit;padding:0;color:inherit;font-weight:inherit}
+.theme-b blockquote.pull{border-left:4px solid #0e7c86;font-family:Georgia,serif;color:#0b1620}
+.theme-b .callout{border-radius:8px;box-shadow:none;border:1px solid #dde6ee}
+.theme-b .callout.accent{border-top:4px solid #0e7c86}
+.theme-b .callout.blue{border-top:4px solid #1257a6}
+.theme-b .callout.teal{border-top:4px solid #0e7c86}
+.theme-b .timeline li:before{background:#0e7c86}
+.theme-b footer{background:#0b1620}
+</style>
+</head>
+<body class="theme-b">
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Regulatory Science · Cardiovascular AI · Patient Impact</p>
+    <h1>Designing Trust: Bringing the First Noninvasive AI Heart‑Pressure Reading to Patients</h1>
+    <p class="dek">How disciplined regulatory science and a true partnership with the FDA turned two decades of engineering into a first‑in‑class device — and why its Predetermined Change Control Plan may matter as much as the breakthrough itself.</p>
+    <div class="byline">
+      <span>A Cardiosense regulatory &amp; clinical feature</span><span class="sep">•</span>
+      <span>On the <strong>regulatory function</strong> behind an FDA De Novo authorization</span>
+    </div>
+    <div>
+      <span class="pill">FDA De Novo Authorized</span>
+      <span class="pill">Breakthrough Device</span>
+      <span class="pill">PCWP Analysis Software™</span>
+      <span class="pill">CardioTag™ 510(k)</span>
+      <span class="pill">PCCP-Enabled AI</span>
+    </div>
+  </div>
+</header>
+
+<section class="stats">
+  <div class="grid">
+    <div class="stat"><div class="num">~6M</div><div class="lab">U.S. adults living with heart failure</div></div>
+    <div class="stat"><div class="num">1st</div><div class="lab">noninvasive, AI‑powered PCWP estimate ever FDA‑authorized</div></div>
+    <div class="stat"><div class="num">310</div><div class="lab">HFrEF patients in the pivotal SEISMIC‑HF I study, vs. right‑heart cath</div></div>
+    <div class="stat"><div class="num">3</div><div class="lab">signals fused on one chest sensor: ECG · PPG · SCG</div></div>
+  </div>
+</section>
+
+<article>
+<div class="wrap">
+
+  <p class="lead drop">Every forty seconds, somewhere in the United States, a person with heart failure begins to retain the fluid that will eventually send them to a hospital. The warning sign appears days — sometimes weeks — before they feel short of breath. It is a rising pressure deep inside the heart. Until now, the only way to read that pressure was to thread a catheter into the pulmonary artery or implant a sensor in the chest. Cardiosense changed that. And the reason a first‑of‑its‑kind technology could be placed safely into the hands of clinicians is not only a story of sensors and algorithms — it is a story of regulatory science done right.</p>
+
+  <p>On May 27, 2026, Cardiosense announced that the U.S. Food &amp; Drug Administration had granted <strong>De Novo classification</strong> to its <strong>PCWP Analysis Software™</strong> — the first noninvasive, AI‑powered tool ever authorized to estimate a patient's pulmonary capillary wedge pressure, a critical indicator of heart health that previously required an invasive procedure. It was the culmination of nearly two decades of multidisciplinary research, a rigorous multi‑center clinical study, and a sustained, evidence‑driven collaboration with the FDA's cardiovascular device experts.</p>
+
+  <p>This is the story of how that device was built to be safe, effective, and high‑performing — and of the <strong>regulatory and clinical‑science discipline</strong> that made it real for doctors and patients.</p>
+
+  <!-- ============ THE PROBLEM ============ -->
+  <h2><span class="eyebrow">The Problem</span>Six million patients, and a pressure no one could see</h2>
+
+  <p>Heart failure affects an estimated <strong>6 million American adults</strong>, and the number keeps climbing as the population ages. It is one of the leading causes of hospitalization in people over 65, and the single most expensive condition for the U.S. healthcare system. The cruelty of the disease is in its rhythm: patients feel stable, then deteriorate, then land in the emergency department — over and over.</p>
+
+  <p>The hidden driver of that cycle is <em class="term">congestion</em> — a buildup of fluid that overloads the heart and lungs. The most reliable early signal of congestion is a measurement called <strong>pulmonary capillary wedge pressure (PCWP)</strong>: the filling pressure on the left side of the heart. When PCWP rises, the body is heading toward decompensation. Crucially, that rise often begins <em>well before a patient feels anything at all</em> — opening a window in which a clinician could adjust medication and prevent a hospitalization entirely.</p>
+
+  <p>The problem was access. PCWP could only be obtained two ways: with a catheter placed inside the heart during a right‑heart catheterization, or with a pressure sensor surgically implanted in the pulmonary artery. Both are invasive, expensive, and impossible to repeat day after day. For the vast majority of the 6 million, the most important number in their disease was simply invisible.</p>
+
+  <!-- ============ THE SCIENCE ============ -->
+  <h2><span class="eyebrow">The Science</span>Two decades of signal, fused into a single sensor</h2>
+
+  <p>Cardiosense was built on nearly twenty years of clinical and engineering research into the physiological vibrations of the heart. At its foundation is <strong>seismocardiography (SCG)</strong> — the science of measuring the tiny mechanical movements the heart produces with every beat, captured from the surface of the chest. Married to two more familiar signals — the <strong>electrocardiogram (ECG)</strong>, which captures the heart's electrical activity, and the <strong>photoplethysmogram (PPG)</strong>, which captures blood flow — SCG reveals the relationship between the heart's mechanics, its electrical timing, and the movement of blood. Those relationships encode pressure.</p>
+
+  <p>The hardware that captures all three at once is the <strong>CardioTag™</strong> device: the first multimodal wearable sensor to simultaneously record high‑fidelity ECG, PPG, and SCG from a single patch worn on the chest, from hospital to home. The intelligence that turns those raw waveforms into a clinical number is Cardiosense's <strong>Clinical AI</strong> — deep‑learning algorithms that translate physiological signals into digital biomarkers predictive of heart failure, hemodynamic instability, and other forms of cardiac dysfunction.</p>
+
+  <div class="callout blue">
+    <span class="tag">The Pivotal Evidence · SEISMIC‑HF I</span>
+    <h4>A noninvasive sensor, measured against the invasive gold standard</h4>
+    <p>In the prospective, multi‑center <strong>SEISMIC‑HF I</strong> study, Cardiosense's machine‑learning algorithm was developed and evaluated in <strong>310 patients with heart failure with reduced ejection fraction (HFrEF)</strong>, each undergoing <strong>right‑heart catheterization</strong> — the invasive reference standard for PCWP. The cohort was deliberately diverse, reflecting the broader heart‑failure population. The results, published in <em>JACC: Heart Failure</em> and presented at the American Heart Association's 2024 Scientific Sessions, showed accuracy <strong>comparable to implanted pressure sensors</strong>. Follow‑on analyses at TCT 2025 and AHA 2025 suggested the algorithm can even exceed the standard physical exam at noninvasively assessing congestion at the point of care.</p>
+  </div>
+
+  <p>That phrase — <em>comparable to implanted pressure sensors</em> — is the entire game. It is the difference between an interesting research signal and a device a cardiologist will trust. And turning a promising signal into a number the FDA will authorize for clinical use is not an engineering task. It is a regulatory and clinical‑design discipline.</p>
+
+  <!-- ============ FROM SIGNAL TO SAFE DEVICE ============ -->
+  <h2><span class="eyebrow">From Algorithm to Authorized Device</span>How a model becomes a medicine</h2>
+
+  <p>An AI model that performs well on a research dataset is a long way from a device that is safe and effective in the real world. Closing that gap is the core of the regulatory and clinical work — and it sits at the intersection of two disciplines: <strong>regulatory strategy</strong> and <strong>clinical study design</strong>.</p>
+
+  <h3>Designing the clinical evidence</h3>
+  <p>The validation strategy had to answer the FDA's central question for any diagnostic: does this number mean what you say it means, in the patients you intend to use it on? That meant designing SEISMIC‑HF I so the algorithm's output could be compared head‑to‑head with simultaneous invasive PCWP — defining the reference standard, the agreement metrics, the acceptance criteria, and the statistical plan up front. It meant enrolling a population diverse enough in age, sex, body habitus, and comorbidity that performance could be shown to <strong>generalize</strong> rather than reflect a narrow training set. And it meant separating the data used to <em>train</em> the model from the data used to <em>test</em> it, so the evidence the FDA reviewed was a true measure of future performance, not a memorized one.</p>
+
+  <h3>Analytical and clinical validation</h3>
+  <p>The dossier paired <strong>analytical validation</strong> — does the algorithm compute the value reliably and reproducibly across devices, signal quality, and conditions? — with <strong>clinical validation</strong> — does that value correspond to the patient's true physiology and support the intended clinical decision? Bridging the two is the discipline that defines modern Software‑as‑a‑Medical‑Device (SaMD) review, and it is precisely the evidence architecture a regulatory function must build before a single page is submitted.</p>
+
+  <h3>Writing the indication</h3>
+  <p>The authorized <strong>Indications for Use</strong> are the contract between the company, the FDA, and the practicing clinician. Here, the PCWP Analysis Software is indicated for adult patients diagnosed with HFrEF — a <strong>left‑ventricular ejection fraction of 40% or less</strong> and <strong>New York Heart Association functional Class II, III, or IV</strong> symptoms. That language is not marketing; it is the carefully bounded population in which the evidence supports safe and effective use. Drafting it precisely — broad enough to help patients, narrow enough to be true — is regulatory craft.</p>
+
+  <h3>The quality foundation</h3>
+  <p>None of it holds without a quality system underneath. Cardiosense operates under a Quality Management System compliant with <strong>21 CFR Part 820</strong> and <strong>ISO 13485</strong> — the design controls, risk management, and traceability that let the FDA trust not just the device, but the organization that makes it.</p>
+
+  <blockquote class="pull">
+    "A clinical algorithm doesn't become trustworthy at the moment it's accurate. It becomes trustworthy when you can show — with pre‑specified evidence, in the right patients, under a quality system — that it will keep being accurate. The work of the regulatory function is to design that proof before we ever ask the FDA to review it."
+    <cite>— Arezou Azar, PhD · Chief Regulatory &amp; Compliance Officer, Cardiosense</cite>
+  </blockquote>
+
+  <!-- ============ FDA COLLABORATION ============ -->
+  <h2><span class="eyebrow">The FDA Partnership</span>Building a new device type with CDRH's cardiovascular team</h2>
+
+  <p>Because no noninvasive PCWP device had ever existed, there was no <em>predicate</em> — no previously cleared product to point to and say "we are like that." A device with no predicate cannot take the most common path to market, the 510(k). It needs a pathway built for genuinely novel, low‑to‑moderate‑risk technology: the <strong>De Novo classification request</strong>.</p>
+
+  <p>De Novo is one of the FDA's most demanding and most consequential pathways. It does not merely authorize a single product; it asks the FDA to <strong>create an entirely new device classification</strong> and to write the <strong>special controls</strong> — the specific testing, labeling, and performance requirements — that every future device of this type will have to meet. In other words, Cardiosense and the FDA were not just clearing a product. They were defining a category. The work established the predicate against which the next generation of noninvasive cardiac‑pressure devices will be measured.</p>
+
+  <p>That kind of authorization is impossible without a real, iterative dialogue with the agency. Cardiosense engaged the cardiovascular device experts within the FDA's <strong>Center for Devices and Radiological Health (CDRH)</strong> — the cardiology‑focused review team in CDRH's Office of Cardiovascular Devices — through the agency's interactive review and pre‑submission process. These are structured, evidence‑based conversations: aligning on the reference standard, the acceptance criteria, the human‑factors considerations, the labeling, and the special controls, <em>before</em> the formal submission, so that the final review is a confirmation of shared expectations rather than a surprise.</p>
+
+  <div class="callout accent">
+    <span class="tag">Why De Novo Matters</span>
+    <h4>First‑in‑class isn't just a marketing phrase — it's a regulatory burden</h4>
+    <ul>
+      <li><strong>No predicate, no shortcut.</strong> A novel device must prove safety and effectiveness on its own evidence, not by analogy to an existing product.</li>
+      <li><strong>The company helps write the rules.</strong> Special controls authored through a De Novo become the standard for the whole new category.</li>
+      <li><strong>It creates a predicate.</strong> Once authorized, the device becomes the reference point future competitors must clear against — a durable, first‑mover regulatory moat.</li>
+      <li><strong>It demands partnership.</strong> Total‑product‑lifecycle thinking and sustained FDA dialogue aren't optional; they are the pathway.</li>
+    </ul>
+  </div>
+
+  <p>This is the part of the work that rarely makes a headline and matters enormously: the months of pre‑submissions, the data‑package architecture, the negotiation of exactly what "comparable to an implant" must mean in a label, the special‑controls language that will outlive this single product. It is regulatory leadership in its truest form — and it is the connective tissue between brilliant engineering and a patient who actually benefits.</p>
+
+  <!-- ============ BREAKTHROUGH ============ -->
+  <h2><span class="eyebrow">Accelerating Breakthroughs</span>A Breakthrough Device, built for the patients who can't wait</h2>
+
+  <p>The FDA's <strong>Breakthrough Devices Program</strong> is reserved for technologies that offer more effective diagnosis or treatment of life‑threatening or irreversibly debilitating conditions, and for which no cleared or approved alternative exists. Devices in the program receive prioritized, interactive review and frequent "sprint" discussions with senior FDA reviewers, precisely so that first‑in‑class innovations don't stall on the way to patients.</p>
+
+  <p>A noninvasive way to read a heart pressure that previously demanded an implant fits that profile exactly: a meaningful advantage over the existing standard of care, in a serious and common disease, with no noninvasive alternative. The value of breakthrough engagement is not a faster rubber stamp; it is a deeper, earlier, more collaborative relationship with the FDA — which raises the quality of the evidence and the clarity of the eventual label. It is the regulatory strategy that turns a scientific advance into authorized care without sacrificing rigor.</p>
+
+  <div class="note">
+    Note for review: the Breakthrough Device Designation is stated here per internal confirmation. If the grant date or program details should appear (or be adjusted to match public materials), flag it and this section will be updated.
+  </div>
+
+  <!-- ============ PCCP ============ -->
+  <h2><span class="eyebrow">The Future, Pre‑Authorized</span>PCCP: how the algorithm keeps getting better — safely</h2>
+
+  <p>Here is the deepest idea in the whole story, and the one with the longest shadow over the future of medical AI.</p>
+
+  <p>A traditional medical device is frozen at authorization: the version the FDA reviews is the version that ships, and any meaningful change to the algorithm has historically required a new marketing submission. But an AI model is not a static object. It improves as it learns from more data, more sites, and more diverse patients. The old regulatory model forced a painful trade‑off — either freeze a model that could be getting better, or face a slow, repetitive resubmission for every improvement. Patients lost either way.</p>
+
+  <p>The <strong>Predetermined Change Control Plan (PCCP)</strong> dissolves that trade‑off. Authorized by Congress through the FDA Omnibus Reform Act of 2022 and detailed in the FDA's final guidance issued <strong>December 2024</strong>, a PCCP lets a manufacturer <em>specify in advance</em> the future modifications an AI model may undergo, <em>and</em> the rigorous methods that will be used to develop, validate, and implement them — and have the FDA authorize that plan up front. As long as a future update stays inside the pre‑authorized envelope, the improved model can reach clinicians <strong>without a new submission for each change</strong>.</p>
+
+  <div class="callout teal">
+    <span class="tag">Anatomy of a PCCP</span>
+    <h4>Three parts that turn "trust us" into "here's the proof, in advance"</h4>
+    <ul>
+      <li><strong>Description of Modifications</strong> — exactly what the AI is permitted to change (e.g., periodic retraining on new data, performance refinements) and what it is not.</li>
+      <li><strong>Modification Protocol</strong> — the pre‑specified recipe for each change: data management, retraining methods, the validation and acceptance criteria every update must pass, and how it is released and monitored.</li>
+      <li><strong>Impact Assessment</strong> — a clear‑eyed analysis of the benefits and risks of the planned changes and the controls that keep the device safe and effective across versions.</li>
+    </ul>
+  </div>
+
+  <p>For Cardiosense, the PCCP framework is the bridge between today's authorization and tomorrow's roadmap. The company has publicly stated its intention to introduce a series of new algorithms — to detect heart failure earlier and, critically, to extend to <strong>heart failure with preserved ejection fraction (HFpEF)</strong>, the half of the disease that remains hardest to manage. A well‑designed change‑control strategy is what allows that roadmap to reach patients on a clinically meaningful timescale rather than a bureaucratic one.</p>
+
+  <p>And it answers the question every thoughtful clinician asks about medical AI: <em>am I using the best version of this algorithm, or a frozen snapshot from years ago?</em> With a PCCP, the answer becomes structural. Doctors can have confidence that the model in front of them is the <strong>most current, validated version</strong> — not because they're asked to trust an update, but because the FDA authorized, in advance, the exact discipline by which that update was made. PCCP turns continuous improvement from a regulatory liability into a patient‑safety feature.</p>
+
+  <blockquote class="pull">
+    "A Predetermined Change Control Plan is, to me, the most patient‑centered idea in modern device regulation. It lets us promise a clinician something we never could before: the algorithm you rely on will keep improving, and every improvement will have already cleared a bar the FDA agreed to. That's how you make sure the best version of the technology is the one that actually reaches the bedside."
+    <cite>— Arezou Azar, PhD · Chief Regulatory &amp; Compliance Officer, Cardiosense</cite>
+  </blockquote>
+
+  <!-- ============ IMPACT ============ -->
+  <h2><span class="eyebrow">The Payoff</span>What this changes for doctors and patients</h2>
+
+  <p>Strip away the regulatory architecture and what remains is deceptively simple: a clinician can now obtain a patient's key heart‑filling pressure from a sensor worn on the chest — in the clinic, at the bedside, or at home — instead of from a catheter or an implant. That single shift reorganizes heart‑failure care.</p>
+
+  <p>It enables <strong>pressure‑guided management</strong> outside the walls of the hospital. It gives physicians the data to make <strong>more frequent, more individualized therapy adjustments</strong> — titrating diuretics and medications to a real number rather than to a delayed symptom. The explicit aim, in the words of Cardiosense's leadership, is to <strong>prevent hospitalizations, accelerate discharge, and improve quality of life</strong> for people living with heart failure. For a health system buckling under the cost of repeat admissions, and for 6 million patients who deserve to be caught <em>before</em> the crisis, that is not an incremental improvement. It is a different model of care.</p>
+
+  <!-- ============ MILESTONES ============ -->
+  <hr class="sec">
+  <h3>The journey, in milestones</h3>
+  <ul class="timeline">
+    <li><span class="when">~2 decades of research</span><span class="what">Foundational work in seismocardiography and wearable hemodynamics<small>Peer‑reviewed across IEEE, JAHA, JACC: Basic to Translational Science, and more.</small></span></li>
+    <li><span class="when">AHA 2024</span><span class="what">SEISMIC‑HF I presented at the American Heart Association Scientific Sessions<small>Noninvasive PCWP estimation shown comparable to implanted pressure sensors.</small></span></li>
+    <li><span class="when">June 2025</span><span class="what">SEISMIC‑HF I results published in <em>JACC: Heart Failure</em><small>310 HFrEF patients; the first large‑scale validation against right‑heart catheterization.</small></span></li>
+    <li><span class="when">July 30, 2025</span><span class="what">FDA <strong>510(k) clearance</strong> for the CardioTag™ device<small>The multimodal ECG/PPG/SCG sensor — the hardware foundation — authorized as a Class II device.</small></span></li>
+    <li><span class="when">Oct–Nov 2025</span><span class="what">New SEISMIC‑HF I analyses at TCT 2025 and AHA 2025<small>AI‑enabled congestion assessment shown to potentially exceed the standard physical exam.</small></span></li>
+    <li><span class="when">May 27, 2026</span><span class="what">FDA <strong>De Novo classification</strong> for PCWP Analysis Software™<small>The first noninvasive, AI‑powered PCWP estimate ever authorized — a brand‑new device category.</small></span></li>
+  </ul>
+
+  <!-- ============ CLOSE ============ -->
+  <h2><span class="eyebrow">In Closing</span>The quiet discipline behind a breakthrough</h2>
+
+  <p>It is easy to celebrate the sensor and the algorithm — and they deserve it. But a breakthrough only reaches a patient if the regulatory function designs the proof, builds the quality system, writes the indication, negotiates the special controls, and earns the FDA's confidence that the technology is not just clever but <em>safe, effective, and reproducibly so</em>. That work — the work of regulatory science and clinical design — is what carried Cardiosense's technology across the line that separates a promising study from authorized care.</p>
+
+  <p>And with a forward‑looking change‑control strategy, that line is no longer a finish. It is a starting point for a technology that can keep getting better in the hands of the doctors and patients who need it most — which, for 6 million Americans, may be the most hopeful sentence in heart failure.</p>
+
+  <hr class="sec">
+  <p class="reflist"><strong>Sources &amp; references</strong></p>
+  <ol class="reflist">
+    <li>Cardiosense, "Cardiosense Receives FDA De Novo Classification for Novel Cardiac Technology Designed to Improve Care for Patients with Heart Failure," Business Wire, May 27, 2026.</li>
+    <li>Cardiosense, "Receives FDA 510(k) Clearance for the CardioTag™ Device," Business Wire, July 30, 2025.</li>
+    <li>Cardiosense, "Publication of SEISMIC‑HF I Study Results in <em>JACC: Heart Failure</em>," Business Wire, June 24, 2025; and "Noninvasive Pulmonary Capillary Wedge Pressure Estimation in Heart Failure Patients," <em>JACC: Heart Failure</em>, 2025.</li>
+    <li>Cardiosense, SEISMIC‑HF I secondary analyses presented at TCT 2025 and the American Heart Association 2025 Scientific Sessions.</li>
+    <li>Cardiosense company materials: cardiosense.com (Regulatory, About, Publications, News).</li>
+    <li>U.S. FDA, "Marketing Submission Recommendations for a Predetermined Change Control Plan for Artificial Intelligence‑Enabled Device Software Functions," Final Guidance, December 2024; PCCP authority under the FDA Omnibus Reform Act of 2022.</li>
+    <li>American Heart Association, Heart Disease and Stroke Statistical Update — U.S. heart‑failure prevalence (~6 million adults).</li>
+  </ol>
+
+</div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <h5>Cardiosense — The next frontier in cardiac disease management</h5>
+    <p>This feature describes the regulatory and clinical development of Cardiosense's CardioTag™ device and PCWP Analysis Software™. Figures and milestones are drawn from publicly available Cardiosense and FDA materials. Quotations are draft narrative prepared for review and may be revised by the named individual.</p>
+    <p>The CardioTag™ device and PCWP Analysis Software™ have been authorized to market as Class II medical devices in the U.S. The PCWP Analysis Software is indicated for adult patients with HFrEF (LVEF ≤ 40%, NYHA Class II–IV). This page is informational and is not medical advice. · <a href="https://cardiosense.com/">cardiosense.com</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
